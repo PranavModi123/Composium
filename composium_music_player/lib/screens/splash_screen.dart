@@ -47,8 +47,10 @@ class SplashScreenState extends State<SplashScreen> {
                     style: Theme.of(context).textTheme.headline1,
                     child: AnimatedTextKit(
                       isRepeatingAnimation: false,
-                      onFinished: () => Navigator.pushNamed(
-                          context, AllMusicScreenState.routeName),
+                      onFinished: () => Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          AllMusicScreenState.routeName,
+                          (route) => false),
                       animatedTexts: [
                         TypewriterAnimatedText(
                           'Composium',
