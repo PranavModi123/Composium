@@ -47,6 +47,7 @@ class _createPlaylistState extends State<createPlaylist> {
                   flex: 2,
                   child: GestureDetector(
                     onTap: () {
+                      //write new playlist to db
                       print('${playlistController.text}');
                       playlistController.clear();
                       HapticFeedback.heavyImpact();

@@ -60,6 +60,13 @@ IconData upButton = Icons.keyboard_arrow_up_rounded;
 IconData filledFavButton = Icons.favorite_rounded;
 IconData emptyFavButton = Icons.favorite_outline;
 
+const dummyNames = [
+  'playlist1',
+  'playlist2',
+  'playlist3',
+  'playlist4',
+  'playlist5',
+];
 //Returns a random number between 1 to 10
 int getRandomNumber() {
   var random = Random();
@@ -113,6 +120,11 @@ ThemeData averageTheme(BuildContext context) {
           color: Colors.white),
       headline5: TextStyle(
           fontSize: 14,
+          fontFamily: 'Avenir',
+          fontWeight: FontWeight.w500,
+          color: Colors.lime),
+      headline6: TextStyle(
+          fontSize: 16,
           fontFamily: 'Avenir',
           fontWeight: FontWeight.w500,
           color: Colors.lime),

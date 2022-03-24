@@ -1,4 +1,6 @@
+import 'package:composium_music_player/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../widgets/create_playlist.dart';
 
 class PlaylistDialogScreen extends StatelessWidget {
@@ -16,16 +18,37 @@ class PlaylistDialogScreen extends StatelessWidget {
         height: 300,
         width: 240,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                  flex: 5,
-                  child: Text(
-                    'All Playlist',
-                    style: Theme.of(context).textTheme.headline5,
-                  )),
+                flex: 5,
+                child: ListView.builder(
+                  itemCount: dummyNames.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 14),
+                      child: ListTile(
+                        tileColor: Colors.black38,
+                        onTap: () {
+                          //add to song id to playlist array
+                          HapticFeedback.lightImpact();
+                          Navigator.of(context).pop();
+                        },
+                        trailing: Icon(
+                          filledFavButton,
+                          color: Colors.lime,
+                        ),
+                        title: Text(
+                          dummyNames[index],
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
               Divider(
                 endIndent: 10,
                 indent: 10,
