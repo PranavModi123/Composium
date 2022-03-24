@@ -19,6 +19,7 @@ List<String> allArtWork = [
   r'assets\gradient9.jpg',
 ];
 
+bool isCreatePressed = false;
 Color scaffoldColor = const Color.fromARGB(255, 27, 27, 27);
 
 //button colors
@@ -45,6 +46,8 @@ Color activeSliderColor = Colors.lime;
 Color splashIconColor = Colors.lime;
 Color inactiveSliderColor = Colors.black26;
 //Icons
+IconData addButton = Icons.add_rounded;
+IconData checkButton = Icons.check_rounded;
 IconData SplashMicIcon = Icons.mic_external_on_rounded;
 IconData backArrowButton = Icons.arrow_back_ios_new_rounded;
 IconData settingButton = Icons.menu;
@@ -99,7 +102,7 @@ ThemeData averageTheme(BuildContext context) {
           fontWeight: FontWeight.w500,
           color: Colors.white),
       headline3: TextStyle(
-          fontSize: 18,
+          fontSize: 14,
           fontFamily: 'Avenir',
           fontWeight: FontWeight.w500,
           color: Colors.white),

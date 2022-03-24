@@ -1,5 +1,6 @@
 import 'package:composium_music_player/models/model_song.dart';
 import 'package:composium_music_player/screens/music_player_screen.dart';
+import 'package:composium_music_player/screens/playlist_screen.dart';
 import 'package:composium_music_player/widgets/shared_prefrence.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,7 +52,14 @@ class DisplayMusicListView extends StatelessWidget {
               FocusedMenuItem(
                   title: const Text('add to Queue'), onPressed: () {}),
               FocusedMenuItem(
-                  title: const Text('add to Playlist'), onPressed: () {}),
+                  title: const Text('add to Playlist'),
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return PlaylistDialogScreen();
+                        });
+                  }),
             ],
             child: IconButton(
               icon: Icon(menuButton),
