@@ -49,6 +49,13 @@ class _createPlaylistState extends State<createPlaylist> {
                     onTap: () {
                       //write new playlist to db
                       print('${playlistController.text}');
+                       ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(seconds: 2),
+                              content:
+                                  Text('${playlistController.text} created'),
+                            ),
+                          );
                       playlistController.clear();
                       HapticFeedback.heavyImpact();
                       setState(() {

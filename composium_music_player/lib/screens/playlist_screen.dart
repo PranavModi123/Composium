@@ -33,6 +33,13 @@ class PlaylistDialogScreen extends StatelessWidget {
                         tileColor: Colors.black38,
                         onTap: () {
                           //add to song id to playlist array
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(seconds: 2),
+                              content:
+                                  Text('Song added to ${dummyNames[index]}'),
+                            ),
+                          );
                           HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
                         },
