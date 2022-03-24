@@ -1,5 +1,6 @@
 import 'package:audiotagger/audiotagger.dart';
 import 'package:composium_music_player/constants.dart';
+import 'package:composium_music_player/widgets/shared_prefrence.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
 
 class SongData {
@@ -21,8 +22,9 @@ class SongData {
         allSongsList.add(map);
       }
     });
+    
   }
-
+  }
   // Image getArtwork(SongInfo song, List<ArtistInfo> artists) {
   //   for (int i = 0; i < artists.length; i++) {
   //     if (artists[i].id == song.artistId) {
@@ -40,4 +42,4 @@ class SongData {
   //   }
   // }
 
-}
+

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:composium_music_player/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:composium_music_player/models/model_song.dart';
 import 'package:composium_music_player/screens/all_music_screen.dart';
 import 'package:composium_music_player/widgets/get_meta_data.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../widgets/shared_prefrence.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,7 +22,6 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     SongData().intitalizePlayer();
-
     super.initState();
   }
 
@@ -47,10 +48,11 @@ class SplashScreenState extends State<SplashScreen> {
                     style: Theme.of(context).textTheme.headline1,
                     child: AnimatedTextKit(
                       isRepeatingAnimation: false,
-                      onFinished: () => Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          AllMusicScreenState.routeName,
-                          (route) => false),
+                      onFinished: () {
+                        setCurrentSong();
+                        Navigator.pushNamedAndRemoveUntil(context,
+                            AllMusicScreenState.routeName, (route) => false);
+                      },
                       animatedTexts: [
                         TypewriterAnimatedText(
                           'Composium',
@@ -68,5 +70,17 @@ class SplashScreenState extends State<SplashScreen> {
         ],
       ),
     );
+  }
+
+  void setCurrentSong() {
+    getSongPrefs().then((value) {
+      for (int i = 0; i < allSongsList.length; i++) {
+        if (allSongsList[i]['id'] == value) {
+          // print("Found ${allSongsList[i]['name']}");
+          Provider.of<ModelSong>(context, listen: false).currentSong =
+              allSongsList[i];
+        }
+      }
+    });
   }
 }

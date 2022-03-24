@@ -1,5 +1,6 @@
 import 'package:composium_music_player/models/model_song.dart';
 import 'package:composium_music_player/screens/music_player_screen.dart';
+import 'package:composium_music_player/widgets/shared_prefrence.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:focused_menu/focused_menu.dart';
@@ -26,6 +27,7 @@ class DisplayMusicListView extends StatelessWidget {
             Provider.of<ModelSong>(context, listen: false)
                 .changeSong(allSongsList[index]);
             Navigator.pushNamed(context, MusicPlayer.routeName);
+            writeSongPrefs(allSongsList[index]['id']);
           },
           title: Text(
             allSongsList[index]['name'],
